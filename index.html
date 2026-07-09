@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="calc-wrap">
+    <div class="calculator">
+
+      <!-- HEADER -->
+      <div class="calc-header">
+        <h2>Scientific Calculator</h2>
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btnDeg"
+                  onclick="setMode('deg', this)">DEG</button>
+          <button class="mode-btn" id="btnRad"
+                  onclick="setMode('rad', this)">RAD</button>
+        </div>
+      </div>
+
+      <!-- DISPLAY -->
+      <div class="display">
+        <div class="display-expr" id="displayExpr"></div>
+        <div class="display-main" id="displayMain">0</div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="buttons">
+
+        <!-- ROW 1 -->
+        <button class="btn fn" onclick="calcFn('inv')">INV</button>
+        <button class="btn fn" onclick="calcFn('sin')">sin</button>
+        <button class="btn fn" onclick="calcFn('cos')">cos</button>
+        <button class="btn fn" onclick="calcFn('tan')">tan</button>
+        <button class="btn op" onclick="press('(')">( </button>
+        <button class="btn op" onclick="press(')')"> )</button>
+
+        <!-- ROW 2 -->
+        <button class="btn fn" onclick="calcFn('log')">log</button>
+        <button class="btn fn" onclick="calcFn('ln')">ln</button>
+        <button class="btn fn" onclick="calcFn('sqrt')">√</button>
+        <button class="btn fn" onclick="calcFn('sq')">x²</button>
+        <button class="btn fn" onclick="calcFn('pow')">xʸ</button>
+        <button class="btn fn" onclick="calcFn('fact')">n!</button>
+
+        <!-- ROW 3 -->
+        <button class="btn const" onclick="pressConst('π')">π</button>
+        <button class="btn const" onclick="pressConst('e')">e</button>
+        <button class="btn fn" onclick="calcFn('abs')">|x|</button>
+        <button class="btn fn" onclick="calcFn('inv_x')">1/x</button>
+        <button class="btn fn" onclick="calcFn('cbrt')">∛</button>
+        <button class="btn op danger" onclick="clearAll()">AC</button>
+
+        <!-- ROW 4 -->
+        <button class="btn num" onclick="press('7')">7</button>
+        <button class="btn num" onclick="press('8')">8</button>
+        <button class="btn num" onclick="press('9')">9</button>
+        <button class="btn op" onclick="deleteLast()">⌫</button>
+        <button class="btn op" onclick="press('%')">%</button>
+        <button class="btn op accent" onclick="press('/')">÷</button>
+
+        <!-- ROW 5 -->
+        <button class="btn num" onclick="press('4')">4</button>
+        <button class="btn num" onclick="press('5')">5</button>
+        <button class="btn num" onclick="press('6')">6</button>
+        <button class="btn fn" onclick="calcFn('exp')">EXP</button>
+        <button class="btn fn" onclick="calcFn('neg')">+/-</button>
+        <button class="btn op accent" onclick="press('*')">×</button>
+
+        <!-- ROW 6 -->
+        <button class="btn num" onclick="press('1')">1</button>
+        <button class="btn num" onclick="press('2')">2</button>
+        <button class="btn num" onclick="press('3')">3</button>
+        <button class="btn fn" onclick="calcFn('ans')">ANS</button>
+        <button class="btn fn" onclick="calcFn('rand')">RND</button>
+        <button class="btn op accent" onclick="press('-')">−</button>
+
+        <!-- ROW 7 -->
+        <button class="btn num zero" onclick="press('0')">0</button>
+        <button class="btn num" onclick="press('.')">.</button>
+        <button class="btn fn" onclick="toggleHistory()">⏱</button>
+        <button class="btn eq" onclick="calculate()">=</button>
+        <button class="btn op accent" onclick="press('+')">+</button>
+
+      </div>
+
+    </div>
+
+    <!-- HISTORY PANEL -->
+    <div class="history-panel hidden" id="historyPanel">
+      <div class="history-head">
+        <h3>History</h3>
+        <button onclick="clearHistory()">Clear</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </div>
+
+  </div>
+
+  <footer>Day 65 of 120 · Kishalaya Sarangi · NIT Rourkela</footer>
+  <script src="script.js"></script>
+</body>
+</html>

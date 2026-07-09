@@ -1,0 +1,237 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 12px;
+}
+
+.calc-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* CALCULATOR */
+.calculator {
+  background: #0f0f1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 20px;
+  padding: 20px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* HEADER */
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-header h2 {
+  font-size: 0.9rem;
+  color: #a0a0b0;
+}
+
+.mode-toggle { display: flex; gap: 4px; }
+
+.mode-btn {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #606070;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.mode-btn.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+
+/* DISPLAY */
+.display {
+  background: #06060f;
+  border: 1px solid #1e1e3a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: right;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.display-expr {
+  font-size: 0.82rem;
+  color: #404050;
+  min-height: 18px;
+  word-break: break-all;
+}
+
+.display-main {
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: #f0f0f0;
+  letter-spacing: 1px;
+  word-break: break-all;
+}
+
+.display-main.small { font-size: 1.6rem; }
+.display-main.error { color: #ef4444; font-size: 1.2rem; }
+
+/* BUTTONS */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.btn {
+  padding: 12px 4px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.btn:active { transform: scale(0.95); }
+
+.btn.num {
+  background: #1a1a2e;
+  color: #f0f0f0;
+}
+
+.btn.num:hover { background: #242436; }
+
+.btn.op {
+  background: #12122a;
+  color: #c084fc;
+}
+
+.btn.op:hover { background: #1e1a3a; }
+
+.btn.op.accent {
+  background: #1e1a3a;
+  color: #c084fc;
+  border: 1px solid #7c3aed;
+}
+
+.btn.op.accent:hover { background: #7c3aed; color: #fff; }
+
+.btn.fn {
+  background: #0d0d18;
+  color: #a0a0b0;
+  font-size: 0.78rem;
+}
+
+.btn.fn:hover { background: #1a1a2e; color: #fff; }
+
+.btn.const {
+  background: #0d0d18;
+  color: #10b981;
+  font-size: 0.85rem;
+}
+
+.btn.const:hover { background: #052e1a; }
+
+.btn.danger {
+  background: #2e0505;
+  color: #ef4444;
+}
+
+.btn.danger:hover { background: #ef4444; color: #fff; }
+
+.btn.eq {
+  background: #7c3aed;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  grid-column: span 1;
+}
+
+.btn.eq:hover { background: #6d28d9; }
+
+.btn.zero { grid-column: span 2; }
+
+/* HISTORY */
+.history-panel {
+  background: #0f0f1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 16px;
+  padding: 16px;
+  width: 240px;
+  max-height: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hidden { display: none !important; }
+
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-head h3 { font-size: 0.88rem; color: #a0a0b0; }
+
+.history-head button {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #606070;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.history-head button:hover { border-color: #ef4444; color: #ef4444; }
+
+.history-list {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.history-item {
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.history-item:hover { background: #1e1a3a; }
+
+.hi-expr { font-size: 0.72rem; color: #606070; margin-bottom: 3px; }
+.hi-result { font-size: 0.92rem; color: #c084fc; font-weight: 600; }
+
+.history-empty {
+  color: #404050;
+  font-size: 0.82rem;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  color: #404050;
+  font-size: 0.78rem;
+}
